@@ -18,7 +18,7 @@ Below you can find a summary of the 4 submodules. For a more detailed explanatio
 # Module: not-async
 This module has nothing async to it. It exists for the sake of showing what the default behaviour is (spoiler alert: the consumer leaves the group)
 
-#Module: spring-async
+# Module: spring-async
 The most straightforward approach, add an @Async annotation to the long-running job so that it will be executed on a separate thread.
 
 Pro: easy to set up, if resources (CPU usage/memory) aren't an issue than this approach works well since it will handle multiple events concurrently
