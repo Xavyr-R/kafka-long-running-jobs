@@ -15,22 +15,22 @@ Furthermore, the configurations needed for the different approaches are in the r
 
 Below you can find a summary of the 4 submodules. For a more detailed explanation on the issue and all of the solution I would like to refer to my blog on the subject: TODO
 
-# Module: not-async
+## Module: not-async
 This module has nothing async to it. It exists for the sake of showing what the default behaviour is (spoiler alert: the consumer leaves the group)
 
-# Module: spring-async
+## Module: spring-async
 The most straightforward approach, add an @Async annotation to the long-running job so that it will be executed on a separate thread.
 
 Pro: easy to set up, if resources (CPU usage/memory) aren't an issue than this approach works well since it will handle multiple events concurrently
 Con: if the long-running job is resource intensive the concurrency can become a bottleneck (too much CPU usage, OOM issues etc.). Also, since it's a fire-and-forget approach, retries and kafka error handlers require more work
 
-# Module: pause-container
+## Module: pause-container
 Uses the KafkaListenerEndpointRegistry to get the listener container (spring container that contains the consumer) to pause and resume the consumer.
 
 Pro: more control over success and error callbacks and thus error handling
 Con: requires more effort than the spring-async approach.
 
-# Module: pause-container-with-acknowledge
+## Module: pause-container-with-acknowledge
 Same as the previous one except that it has auto-commit disabled and uses the Acknowledge object to acknowledge the event (and commit).
 
 Pro: More control, and the ability to not acknowledge events when an error occurs
