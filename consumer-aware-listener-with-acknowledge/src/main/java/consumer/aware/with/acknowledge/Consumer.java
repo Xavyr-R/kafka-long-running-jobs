@@ -6,11 +6,9 @@ import org.apache.kafka.common.TopicPartition;
 import org.springframework.core.task.AsyncListenableTaskExecutor;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,7 +30,7 @@ public class Consumer {
     private final AsyncListenableTaskExecutor executor;
 
     @KafkaHandler
-    public void handleEvent(@Payload String event, Acknowledgment acknowledgment, org.apache.kafka.clients.consumer.Consumer<?, ?> consumer) {
+    public void handleEvent(@Payload String event, org.apache.kafka.clients.consumer.Consumer<?, ?> consumer) {
         log.info("Handling the event with body {} the consumer aware with acknowledgment way", event);
 
         Set<TopicPartition> assignedPartitions = consumer.assignment().stream()
@@ -43,14 +41,13 @@ public class Consumer {
 
         executor.submitListenable(() -> longRunningJob.run(event))
                 .addCallback(result -> {
-                            acknowledgment.acknowledge();
+                            consumer.commitSync();
                             consumer.resume(assignedPartitions);
                             log.info("Success callback");
                         },
                         ex -> {
                             //perform retry mechanism like a dead letter queue here
-                            //alternatively nack the event with acknowledgement.nack(timeout)
-                            acknowledgment.acknowledge();
+                            consumer.commitSync();
                             consumer.resume(assignedPartitions);
                             log.warn("Error callback");
                         }

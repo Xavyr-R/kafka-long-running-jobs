@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "b7a74040-bbb9-4032-8859-9601c43506e8",
+		"name": "kafka-long-running-jobs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8081/spring-async",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Hello world\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/spring-async",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"spring-async"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8082//pause-container",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Hello paused container\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082//pause-container",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"",
+						"pause-container"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/pause-container-with-acknowledge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"message\": \"Hi there mate\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/pause-container-with-acknowledge",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"pause-container-with-acknowledge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8084/consumer-aware",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"another one again\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/consumer-aware",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"consumer-aware"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8086/not-async",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"fail\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/not-async",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"not-async"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8085/consumer-aware-with-acknowledge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Consumer aware with acknowledge\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/consumer-aware-with-acknowledge",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"consumer-aware-with-acknowledge"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
