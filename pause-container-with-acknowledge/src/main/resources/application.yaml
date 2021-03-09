@@ -1,0 +1,28 @@
+server:
+  port: 8083
+spring:
+  profiles:
+    active: local
+  application:
+    name: kafka-long-running-jobs-pause-container-with-acknowledge
+  kafka:
+    bootstrap-servers: localhost:29095
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+    consumer:
+      auto-offset-reset: earliest
+      group-id: kafka-long-running-jobs-pause-container-with-acknowledge
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+      #The config below can be configured to limit the amount of worked polled at the same time.
+      max-poll-records: 1
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+logging:
+  level:
+    root: INFO
+kafka:
+  container:
+    id: "pause_container_with_acknowledge_id"
