@@ -36,18 +36,3 @@ Same as the previous one except that it has auto-commit disabled and uses the Ac
 Pro: More control, and the ability to not acknowledge events when an error occurs
 Con: More effort than the two approaches above, also don't forget to acknowledge
 
-# Module: consumer-aware-listener
-Exposes the underlying consumer object to pause and resume consumption.
-
-Pro: can control exactly which topics and partitions to pause and resume, which means a lot of control
-Con: with great control comes greater error-proneness. Make sure the correct parameters are passed to the pause and resume methods
-
-# Module: consumer-aware-listener-with-acknowledge
-Same as the previous one except that it has auto-commit disabled and commits using the consumer object
-
-Pro: same as before, but sometimes you just want manual commits
-Con: same as before
-
-Side note on this approach: Note that spring also provides an interface that exposes both the acknowledge object as well as the consumer. The acknowledge object can be used in the same way as in the module "pause-container-with-acknowledge". To enable this, add the following property to the application.yaml: 
-
-spring.kafka.listener.ack-mode=MANUAL_IMMEDIATE 
