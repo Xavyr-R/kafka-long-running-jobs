@@ -2,7 +2,7 @@
 
 This repo contains examples of dealing with long-running jobs using Spring and Apache Kafka. Its purpose purely informative to give developers an idea of the different approaches to take.
 
-The project has 6 submodules, each independent of one another so that all information needed can be found by looking at a single module. Note that this does mean that there is duplicate code across modules, however as its purpose is to show how to tackle the problem I found it easier if you only had to look in a single module instead of navigating all over the repo.
+The project has 4 submodules, each independent of one another so that all information needed can be found by looking at a single module. Note that this does mean that there is duplicate code across modules, however as its purpose is to show how to tackle the problem I found it easier if you only had to look in a single module instead of navigating all over the repo.
 
 All the submodules have (mostly) the same classes:
 - Application: main class to start the module
@@ -13,7 +13,7 @@ All the submodules have (mostly) the same classes:
 
 Furthermore, the configurations needed for the different approaches are in the resources/application.yaml
 
-Below you can find a summary of the 6 submodules. For a more detailed explanation on the issue and all of the solution I would like to refer to my blog on the subject: TODO
+Below you can find a summary of the 4 submodules. For a more detailed explanation on the issue and all of the solution I would like to refer to my blog on the subject: TODO
 
 # Module: not-async
 This module has nothing async to it. It exists for the sake of showing what the default behaviour is (spoiler alert: the consumer leaves the group)
