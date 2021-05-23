@@ -88,33 +88,6 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8084/consumer-aware",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"message\": \"another one again\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8084/consumer-aware",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"consumer-aware"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "localhost:8086/not-async",
 			"request": {
 				"method": "POST",
@@ -136,33 +109,6 @@
 					"port": "8086",
 					"path": [
 						"not-async"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:8085/consumer-aware-with-acknowledge",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"message\": \"Consumer aware with acknowledge\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8085/consumer-aware-with-acknowledge",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"consumer-aware-with-acknowledge"
 					]
 				}
 			},
