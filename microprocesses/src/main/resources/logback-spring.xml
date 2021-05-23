@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="application.yaml"/>
+    <contextName>${spring.application.name}</contextName>
+    <springProfile name="local">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} | %5p | %logger{25} | [%thread] | %m%n</pattern>
+                <charset>utf8</charset>
+            </encoder>
+        </appender>
+        <root level="${logging.level.root}">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>
